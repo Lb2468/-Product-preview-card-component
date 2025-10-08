@@ -1,62 +1,91 @@
-body {
-  background-color: hsl(30, 38%, 92%); 
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  justify-content: center;  
-  align-items: center;    
-   height: 100vh;
-  margin: 0;
-  overflow: hidden;  
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: hsl(30, 38%, 92%);
+  color: hsl(215, 32%, 27%);
+  line-height: 1.5;
+}
+
+.card-image img {
+  width: 100%;
+
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .card {
-background: white;
-    border-radius: 12px;
-    margin: 40px 10px;
-    min-width: 306px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; 
+  width: 90%;
+  max-width: 350px;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  height: auto;
 }
-.card-img{
-  flex:  0 0 50%;
-   background-image: url("./images/image-product-mobile.jpg");
-background-size: cover;
-background-position: center;
-min-height: 400px;
-  }
 
-
-
+/*  */
 
 .card-content {
-  padding: 20px;
- 
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.price {
+.product-title {
+  font-size: 1.25rem;
+  margin: 0;
+  color: hsl(217, 19%, 35%);
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: hsl(214, 17%, 51%);
+}
+
+/* الأسعار */
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.current-price {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: hsl(158, 36%, 37%);
-  font-size: 24px;
-  font-weight: bold;
-}
-p{
-  color: hsl(228, 12%, 48%);
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-}
-.perfume{
-  letter-spacing: 6px;
 }
 
 .old-price {
+  font-size: 0.9rem;
   text-decoration: line-through;
-  color: hsl(228, 12%, 48%);
-  
-  margin-left: 10px;
+  color: hsl(215, 32%, 27%);
 }
-.cart-icon{
-  margin-right: 7px;
+
+/* الزر */
+
+.btn-add {
+  background-color: hsl(158, 36%, 37%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
 button {
   width: 100%;
@@ -73,12 +102,15 @@ button {
 button:hover {
   background-color: hsl(158, 36%, 25%);
 }
-@media only screen and (min-width: 600px) {
-  .card{
-    flex-direction: row;
-    width: 600px;
+
+/* عند الشاشات الأكبر من 600px */
+@media (min-width: 600px) {
+  .card {
+    max-width: 600px;
+    grid-template-columns: 1fr 1fr; /* الصورة بجانب النص */
   }
-  .card-img{
-  background-image: url("./images/image-product-desktop.jpg");
+
+  .card-content {
+    padding: 2rem;
   }
 }
